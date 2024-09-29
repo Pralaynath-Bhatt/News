@@ -1,4 +1,5 @@
 import React from 'react'
+import Countrys from './countrySF.json'
  const Navbar = ({setCategory}) => {
   return (
     

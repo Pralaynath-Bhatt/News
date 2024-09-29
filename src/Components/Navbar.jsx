@@ -33,12 +33,12 @@ import React from 'react'
   </div>
   <div class="form-floating">
   <select class="form-select" size="3" aria-label="Size 3 select example">
-  <option selected>Open this select menu</option>
+  <option selected value="in">India</option>
   <option value="1">One</option>
   <option value="2">Two</option>
   <option value="3">Three</option>
   </select>
-  <label for="floatingSelect">Works with selects</label>
+  <label for="floatingSelect">Select any country</label>
 </div>
 </nav>
   )

@@ -1,4 +1,42 @@
-img {
-    border-radius: 15px;
-}
-
+.card {
+    background-color: #343a40; /* Dark background */
+    color: #f8f9fa; /* Light text */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+    height: 100%; /* Make sure card takes full height of parent */
+  }
+  
+  .card:hover {
+    transform: translateY(-15px); /* Lift effect on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space items evenly */
+    height: 100%; /* Fill available height */
+  }
+  
+  .card-title {
+    font-weight: 600; /* Bold title */
+  }
+  
+  .card-text {
+    font-size: 0.9rem; /* Slightly smaller font for description */
+  }
+  
+  .info p {
+    font-size: 0.8rem; /* Smaller font for site and date */
+    color: #adb5bd; /* Muted color for secondary info */
+  }
+  
+  .btn {
+    background-color: #007bff; /* Bootstrap primary color */
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  

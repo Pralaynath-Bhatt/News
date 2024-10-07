@@ -7,7 +7,7 @@ import img from "./logo.png"
     
     <nav className="navbar navbar-expand-lg bg-dark" style={{ position: "fixed", zIndex: "3", width: "100%", padding: "10px 20px" }}>
     <div className="container-fluid">
-      <img className="logo" src={img} alt='logo' style={{ height: "50px", width: "100px", marginRight: "20px" }} />
+      <img className="logo" src={img} alt='logo' style={{ height: "50px", width: "100px", marginRight: "20px",borderRadius:"15px" }} />
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>

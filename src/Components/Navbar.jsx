@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
  const Navbar = ({setCategory,setSelectedCountry,setSearch}) => {
-  
+  let [query,setQuery]= useState("");
   return (
     
     <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
@@ -88,9 +88,10 @@ import React, { useState } from 'react'
                 </select>
                 <div>
                 <input type="search" placeholder='Search'
-                onChange={(e)=>{setSearch(e.target.value)
+                onChange={(e)=>{setQuery(e.target.value)
                 }
                 }/>
+                <button onClick={()=>{setSearch(query)}} style={{borderRadius:"50%"}}>🔍</button>
                 </div>
   </div>
   </nav>

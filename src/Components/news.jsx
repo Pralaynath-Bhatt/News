@@ -1,9 +1,12 @@
 import React from 'react'
 import "./newsCard.css"
  const News = ({title, content, src, url,site,author,publishedAt}) => {
+  if (!src) {
+    src = `https://cdn.pixabay.com/photo/2015/02/15/09/33/news-636978_1280.jpg`
+  }
   return (
     <div id="Card" className="card bg-dark text-light mb-3 d-inline-block mx-3 px-2 my-3 py-2" style={{maxWidth:"330px",minHeight:"390px",borderRadius:"10px"}}>
-    <img src={src?src:`https://cdn.pixabay.com/photo/2015/02/15/09/33/news-636978_1280.jpg`} style={{height:"200px",width:"314px"}} className="card-img-top" alt="image"/>
+    <img src={src} style={{height:"200px",width:"314px"}} className="card-img-top" alt="image"/>
     <div className="card-body">
       <div className='info' style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 0px 0px 0px"}}>
         <p>{site.slice(0,20)}</p>

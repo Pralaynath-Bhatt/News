@@ -1,0 +1,16 @@
+a{
+    border-radius: 10px;
+    margin: 5px;
+}
+a:hover{
+
+    
+    text-decoration: underline;
+    font-size: larger;
+    color: beige;
+    font-weight: bolder;
+}
+
+.logo:hover{
+    width: 150px;
+}

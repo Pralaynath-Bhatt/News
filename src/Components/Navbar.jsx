@@ -1,6 +1,7 @@
-import React from 'react'
-import Countrys from './countrySF.json'
- const Navbar = ({setCategory,setSelectedCountry}) => {
+import React, { useState } from 'react'
+
+ const Navbar = ({setCategory,setSelectedCountry,setSearch}) => {
+  
   return (
     
     <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
@@ -85,6 +86,12 @@ import Countrys from './countrySF.json'
                 <option value="hk" onClick={() => setSelectedCountry('hk')}>Hong Kong</option>
                 <option value="mo" onClick={() => setSelectedCountry('mo')}>Macau</option>
                 </select>
+                <div>
+                <input type="search" placeholder='Search'
+                onChange={(e)=>{setSearch(e.target.value)
+                }
+                }/>
+                </div>
   </div>
   </nav>
   )

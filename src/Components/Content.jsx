@@ -3,14 +3,15 @@ import React from 'react';
 import News from "./news"
 
 
- const Content = ({category,country}) => {
-
+ const Content = ({category,country,search}) => {
+  
+  let url
+  search?url =`https://newsapi.org/v2/top-headlines?q=${search}&apiKey=${import.meta.env.VITE_API_KEY}`:url= `https://newsapi.org/v2/top-headlines?category=${category}&apiKey=${import.meta.env.VITE_API_KEY}`
+   
   const [articles,setArticles] = useState([]);
-
-  useEffect(() => {
-    let url =`https://newsapi.org/v2/top-headlines?category=${category}&apiKey=${import.meta.env.VITE_API_KEY}`;
+  useEffect(() => { 
     fetch(url).then(response => response.json()).then( data => setArticles(data.articles));
-
+    
  },[category])
     
       

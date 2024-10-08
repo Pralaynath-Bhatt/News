@@ -2,9 +2,13 @@ import { useEffect, useState } from "react";
 import React from 'react';
 import News from "./news";
 
-const Content = ({ category, country, search }) => {
+const Content = ({ category, search }) => {
   const [articles, setArticles] = useState([]);
   const [url, setUrl] = useState('');
+  const [bookmarks, setBookmarks] = useState(() => {
+    const savedBookmarks = localStorage.getItem('bookmarks');
+    return savedBookmarks ? JSON.parse(savedBookmarks) : [];
+  });
 
   const empty = () => {
     setUrl(`https://newsapi.org/v2/top-headlines?category=${category}&apiKey=${import.meta.env.VITE_API_KEY2}`);
@@ -20,7 +24,7 @@ const Content = ({ category, country, search }) => {
     } else {
       full();
     }
-  }, [search, category]); // Include search and category in dependency array
+  }, [search, category]);
 
   useEffect(() => {
     if (url) {
@@ -34,13 +38,23 @@ const Content = ({ category, country, search }) => {
         .then(data => setArticles(data.articles))
         .catch(error => console.error('Fetch error:', error));
     }
-  }, [url]); // Fetch data whenever URL changes
+  }, [url]);
+
+  const handleBookmark = (article, isBookmarked) => {
+    const updatedBookmarks = isBookmarked
+      ? [...bookmarks, article]
+      : bookmarks.filter(bookmark => bookmark.url !== article.url);
+
+    setBookmarks(updatedBookmarks);
+    localStorage.setItem('bookmarks', JSON.stringify(updatedBookmarks));
+  };
 
   return (
     <div>
       <h1 className="text-center">Latest<span className="badge bg-danger">News</span></h1>
       {articles.map((news, index) => {
         if (news.title !== "[Removed]") {
+          const isBookmarked = bookmarks.some(bookmark => bookmark.url === news.url);
           return (
             <News 
               key={index} 
@@ -51,10 +65,12 @@ const Content = ({ category, country, search }) => {
               site={news.source.name} 
               author={news.author} 
               publishedAt={news.publishedAt}
+              onBookmark={handleBookmark}
+              isBookmarked={isBookmarked}
             />
           );
         }
-        return null; // Make sure to return null if the condition fails
+        return null; 
       })}
     </div>
   );
